@@ -15,6 +15,5 @@ class NewestBooksSuccess extends NewestBooksState {
 
 class NewestBooksFailure extends NewestBooksState {
   final String errMessage;
-
   NewestBooksFailure(this.errMessage);
 }

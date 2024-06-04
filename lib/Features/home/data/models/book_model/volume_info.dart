@@ -5,17 +5,16 @@ import 'reading_modes.dart';
 
 class VolumeInfo {
   String? title;
-  List<String>? authors;
+  String? subtitle;
+  List<dynamic>? authors;
   String? publisher;
   String? publishedDate;
   String? description;
   List<IndustryIdentifier>? industryIdentifiers;
   ReadingModes? readingModes;
-  int? pageCount;
+  num? pageCount;
   String? printType;
-  List<String>? categories;
-  num? averageRating;
-  num? ratingsCount;
+  List<dynamic>? categories;
   String? maturityRating;
   bool? allowAnonLogging;
   String? contentVersion;
@@ -25,9 +24,13 @@ class VolumeInfo {
   String? previewLink;
   String? infoLink;
   String? canonicalVolumeLink;
+  num? averageRating;
+  num? ratingsCount;
+  
 
   VolumeInfo({
     this.title,
+    this.subtitle,
     this.authors,
     this.publisher,
     this.publishedDate,
@@ -37,8 +40,6 @@ class VolumeInfo {
     this.pageCount,
     this.printType,
     this.categories,
-    this.averageRating,
-    this.ratingsCount,
     this.maturityRating,
     this.allowAnonLogging,
     this.contentVersion,
@@ -48,13 +49,16 @@ class VolumeInfo {
     this.previewLink,
     this.infoLink,
     this.canonicalVolumeLink,
+    this.averageRating,
+    this.ratingsCount,
   });
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
         title: json['title'] as String?,
-        authors: (json['authors'] as List<dynamic>?)
-            ?.map((author) => author.toString())
-            .toList(),
+        averageRating: json['averageRating'] as num?,
+        ratingsCount: json['ratingsCount'] as num?,
+        subtitle: json['subtitle'] as String?,
+        authors: json['authors'] as List<dynamic>?,
         publisher: json['publisher'] as String?,
         publishedDate: json['publishedDate'] as String?,
         description: json['description'] as String?,
@@ -65,13 +69,9 @@ class VolumeInfo {
             ? null
             : ReadingModes.fromJson(
                 json['readingModes'] as Map<String, dynamic>),
-        pageCount: json['pageCount'] as int?,
+        pageCount: json['pageCount'] as num?,
         printType: json['printType'] as String?,
-        categories: (json['categories'] as List<dynamic>?)
-            ?.map((category) => category.toString())
-            .toList(),
-        averageRating: json['averageRating'] as num?,
-        ratingsCount: json['ratingsCount'] as num?,
+        categories: json['categories'] as List<dynamic>?,
         maturityRating: json['maturityRating'] as String?,
         allowAnonLogging: json['allowAnonLogging'] as bool?,
         contentVersion: json['contentVersion'] as String?,
@@ -90,6 +90,7 @@ class VolumeInfo {
 
   Map<String, dynamic> toJson() => {
         'title': title,
+        'subtitle': subtitle,
         'authors': authors,
         'publisher': publisher,
         'publishedDate': publishedDate,
@@ -100,8 +101,6 @@ class VolumeInfo {
         'pageCount': pageCount,
         'printType': printType,
         'categories': categories,
-        'averageRating': averageRating,
-        'ratingsCount': ratingsCount,
         'maturityRating': maturityRating,
         'allowAnonLogging': allowAnonLogging,
         'contentVersion': contentVersion,
@@ -111,5 +110,7 @@ class VolumeInfo {
         'previewLink': previewLink,
         'infoLink': infoLink,
         'canonicalVolumeLink': canonicalVolumeLink,
+        'averageRating': averageRating,
+        'ratingsCount': ratingsCount,
       };
 }

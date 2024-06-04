@@ -4,7 +4,8 @@ import 'custom_fading_widget.dart';
 import 'custom_book_image_loading_indicator.dart';
 
 class CustomLoadingIndicatorBooksListView extends StatelessWidget {
-  const CustomLoadingIndicatorBooksListView({super.key, required this.widgetHight});
+  const CustomLoadingIndicatorBooksListView(
+      {super.key, required this.widgetHight});
   final num widgetHight;
   @override
   Widget build(BuildContext context) {

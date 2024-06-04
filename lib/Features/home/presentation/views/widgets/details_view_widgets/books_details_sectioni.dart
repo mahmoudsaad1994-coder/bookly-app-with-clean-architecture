@@ -8,6 +8,7 @@ import '../../../../../../core/widgets/custom_book_item.dart';
 
 class BookDetailsSection extends StatelessWidget {
   const BookDetailsSection({super.key, required this.book});
+
   final BookEntity book;
 
   @override
@@ -40,7 +41,7 @@ class BookDetailsSection extends StatelessWidget {
         Opacity(
           opacity: .7,
           child: Text(
-            book.authorName!,
+            book.authorName?? 'Not Available',
             style: Styles.textStyle18.copyWith(
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.w500,
@@ -52,13 +53,13 @@ class BookDetailsSection extends StatelessWidget {
         ),
         BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
-          rating: book.rating?? 0.0,
-          ratingCount: book.ratingCount?? 0.0,
+          rating: book.rating ?? 0.0,
+          ratingCount: 0.0,
         ),
         const SizedBox(
           height: 37,
         ),
-        const BooksAction(),
+        BooksAction(book: book),
       ],
     );
   }

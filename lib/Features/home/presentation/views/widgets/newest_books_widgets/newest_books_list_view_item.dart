@@ -4,12 +4,14 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../../constants.dart';
 import '../../../../../../core/utils/styles.dart';
+import '../../../../../../core/utils/functions/isfree.dart';
 import '../../../../../../core/widgets/custom_book_item.dart';
 import '../../../../domain/entities/book_entity.dart';
 import '../../../../../../core/widgets/book_rating.dart';
 
 class NewestBookListViewItem extends StatelessWidget {
   const NewestBookListViewItem({super.key, required this.book});
+
   final BookEntity book;
 
   @override
@@ -22,7 +24,7 @@ class NewestBookListViewItem extends StatelessWidget {
         height: 125,
         child: Row(
           children: [
-            CustomBookImage(image: book.image!),
+            CustomBookImage(image: book.image ?? ''),
             const SizedBox(
               width: 30,
             ),
@@ -45,7 +47,7 @@ class NewestBookListViewItem extends StatelessWidget {
                     height: 3,
                   ),
                   Text(
-                    book.authorName!,
+                    book.authorName ?? 'Not Available',
                     style: Styles.textStyle14,
                   ),
                   const SizedBox(
@@ -54,15 +56,15 @@ class NewestBookListViewItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        'Free',
+                        isFree(book),
                         style: Styles.textStyle20.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       const Spacer(),
                       BookRating(
-                        rating: book.rating?? 0.0,
-                        ratingCount: book.ratingCount?? 0.0,
+                        rating: book.rating ?? 0.0,
+                        ratingCount: book.ratingCount ?? 00,
                       ),
                     ],
                   ),

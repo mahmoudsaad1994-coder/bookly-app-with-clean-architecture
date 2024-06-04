@@ -46,7 +46,9 @@ class _FeatuedBooksListViewBlocBuilderState
             books: books,
           );
         } else {
-          return const CustomLoadingIndicatorBooksListView(widgetHight: .3,);
+          return const CustomLoadingIndicatorBooksListView(
+            widgetHight: .3,
+          );
         }
       },
     );

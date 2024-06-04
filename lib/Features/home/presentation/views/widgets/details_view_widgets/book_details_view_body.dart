@@ -7,6 +7,7 @@ import 'similar_books_section.dart';
 
 class BookDetailsViewBody extends StatefulWidget {
   const BookDetailsViewBody({super.key, required this.bookEntity});
+
   final BookEntity bookEntity;
 
   @override
@@ -25,7 +26,9 @@ class _BookDetailsViewBodyState extends State<BookDetailsViewBody> {
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Column(
               children: [
-                const CustomBookDetailsAppBar(),
+                CustomBookDetailsAppBar(
+                  buyLink: book.infoBookLink ?? '',
+                ),
                 BookDetailsSection(
                   book: book,
                 ),

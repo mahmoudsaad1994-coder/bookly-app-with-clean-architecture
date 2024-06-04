@@ -6,8 +6,8 @@ import '../../domain/entities/book_entity.dart';
 import '../manger/similar_books_cubit/similar_books_cubit.dart';
 
 class BookDetailsView extends StatefulWidget {
-  const BookDetailsView({super.key, required this.bookEntity});
-  final BookEntity bookEntity;
+  const BookDetailsView({super.key, required this.book});
+  final BookEntity book;
   @override
   State<BookDetailsView> createState() => _BookDetailsViewState();
 }
@@ -15,17 +15,16 @@ class BookDetailsView extends StatefulWidget {
 class _BookDetailsViewState extends State<BookDetailsView> {
   @override
   void initState() {
-    BlocProvider.of<SimilarBooksCubit>(context)
-        .fetchNewestBooks(catagory: widget.bookEntity.catagory ?? '');
+    BlocProvider.of<SimilarBooksCubit>(context).fetchNewestBooks(catagory: '');
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: BookDetailsViewBody(
-          bookEntity: widget.bookEntity,
+          bookEntity: widget.book,
         ),
       ),
     );

@@ -37,9 +37,9 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   @override
   Future<List<BookEntity>> fetchSimilarBooks({required String category}) async {
     var data = await apiService.get(
-        endPoint: 'volumes?Filtering=free-ebooks&Sorting=newest&q=programming&Sorting=relevance ');
+        endPoint:
+            'volumes?Filtering=free-ebooks&Sorting=newest&q=programming&Sorting=relevance ');
     List<BookEntity> books = getBooksList(data);
-    saveBooksData(books, kSimilarBox);
     return books;
   }
 

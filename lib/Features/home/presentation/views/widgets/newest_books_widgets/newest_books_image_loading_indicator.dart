@@ -46,7 +46,7 @@ class BookLoadingListViewItem extends StatelessWidget {
                       color: Colors.grey[50],
                     ),
                     const Spacer(),
-                   Container(
+                    Container(
                       width: 10,
                       height: 4,
                       color: Colors.grey[50],

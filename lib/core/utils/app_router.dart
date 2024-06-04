@@ -39,7 +39,7 @@ abstract class AppRouter {
                       FetchSimilarBooksUseCase(getIt.get<HomeRepoImpl>()),
                 ),
             child: BookDetailsView(
-              bookEntity: state.extra as BookEntity,
+              book: state.extra as BookEntity,
             )),
       ),
     ],
