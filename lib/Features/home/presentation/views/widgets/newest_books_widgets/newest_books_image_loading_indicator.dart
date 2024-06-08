@@ -28,16 +28,14 @@ class BookLoadingListViewItem extends StatelessWidget {
                   color: Colors.grey[50],
                 ),
                 const SizedBox(
-                  height: 3,
+                  height: 15,
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width * .3,
                   height: 4,
                   color: Colors.grey[50],
                 ),
-                const SizedBox(
-                  height: 3,
-                ),
+                const Spacer(),
                 Row(
                   children: [
                     Container(

@@ -9,9 +9,10 @@ class NewestBooksListViewLoadingIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomFadingWidget(
-      child: ListView.builder(
+      child: ListView.separated(
         itemCount: 15,
         physics: const NeverScrollableScrollPhysics(),
+        separatorBuilder: (context, index) => const SizedBox(height: 10),
         itemBuilder: (context, index) {
           return const Padding(
             padding: EdgeInsets.symmetric(horizontal: 8),
