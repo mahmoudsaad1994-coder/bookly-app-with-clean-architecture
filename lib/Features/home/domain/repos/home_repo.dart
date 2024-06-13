@@ -8,4 +8,6 @@ abstract class HomeRepo {
   Future<Either<Failure, List<BookEntity>>> fetchNewestBooks();
   Future<Either<Failure, List<BookEntity>>> fetchSimilarBooks(
       {required String category});
+  Future<Either<Failure, List<BookEntity>>> fetchSearchBooks(
+      {required String search});
 }

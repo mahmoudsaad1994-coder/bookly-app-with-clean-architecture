@@ -3,6 +3,7 @@ import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lottie/lottie.dart';
 
 import 'sliding_text.dart';
 
@@ -40,10 +41,8 @@ class _SplashViewbodyState extends State<SplashViewbody>
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Image.asset(AssetsData.logo),
-        const SizedBox(
-          height: 4,
-        ),
         SlidingText(slidingAnimation: slidingAnimation),
+        Lottie.asset('assets/animations/book_loading.json', repeat: false),
       ],
     );
   }
@@ -63,13 +62,8 @@ class _SplashViewbodyState extends State<SplashViewbody>
 
   void navigateToHome() {
     Future.delayed(
-      const Duration(seconds: 2),
+      const Duration(seconds: 5),
       () {
-        // Get.to(() => const HomeView(),
-        //     // calculations
-        //     transition: Transition.fade,
-        //     duration: kTranstionDuration);
-
         GoRouter.of(context).push(AppRouter.kHomeView);
       },
     );

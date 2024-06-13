@@ -9,42 +9,36 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
-      physics: BouncingScrollPhysics(),
-      slivers: [
-        SliverToBoxAdapter(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 30,
-                  ),
-                  child: CustomAppBar()),
-              FeatuedBooksListViewBlocBuilder(),
-              SizedBox(
-                height: 50,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
-                child: Text(
-                  'Newest Books',
-                  style: Styles.textStyle18,
+    return NestedScrollView(
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+        return <Widget>[
+          const SliverToBoxAdapter(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 30),
+                  child: CustomAppBar(),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-            ],
+                FeatuedBooksListViewBlocBuilder(),
+                SizedBox(height: 50),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 30),
+                  child: Text(
+                    'Newest Books',
+                    style: Styles.textStyle18,
+                  ),
+                ),
+                SizedBox(height: 20),
+              ],
+            ),
           ),
-        ),
-        SliverFillRemaining(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30),
-            child: NewestBooksListViewBlocBuilder(),
-          ),
-        ),
-      ],
+        ];
+      },
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 30),
+        child: NewestBooksListViewBlocBuilder(),
+      ),
     );
   }
 }
