@@ -1,15 +1,10 @@
 import 'package:bookly_app/Features/search/presentation/manager/search_cubit/search.states.dart';
-import 'package:bookly_app/Features/search/presentation/manager/search_cubit/search_cubit.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/functions/build_error_snack_bar.dart';
-import '../../../../../core/utils/functions/setup_service_locator.dart';
 import '../../../../../core/utils/styles.dart';
-import '../../../../home/data/repos/home_repo_impl.dart';
 import '../../../../home/domain/entities/book_entity.dart';
-import '../../../../home/domain/use_cases/fech_search_books_use_case.dart';
 import 'custom_search_text_field.dart';
 
 class SearchViewBody extends StatelessWidget {
